@@ -4,9 +4,9 @@
     <title>Animation d'un cercle</title>
     <style>
         #myContainer{
-            width: 800px;
-            height: 400px;
-            background: white;
+            width: 400px;
+            height: 700px;
+            background: black;
             position: absolute;
             top: 50%; 
             left: 50%;
@@ -24,24 +24,24 @@
         }
         .colonne1{
    
-            background-color: red;
+            background-color: white;
             grid-row: 1;
             grid-column: 1;   
         }
         .colonne2{
             
-            background-color: red;
+            background-color: white;
             grid-row: 1;
             grid-column: 2;
         }
         
         .colonne3{
-            background-color: red;
+            background-color: white;
             grid-row: 1;
             grid-column: 3;
         }
         .colonne4{
-            background-color: red;
+            background-color: white;
             grid-row: 1;
             grid-column: 4;
         }
@@ -59,9 +59,16 @@
                 top: 0;
             }
             100%{
-                top: 300px;
+                top: 800px;
             }
         }
+        #endzone{
+        /* border: 1px black solid; */
+        height: 750px;
+        width: 400px;
+        /* margin-top: 300px; */
+        background-color: grey;
+    }
     </style>
 </head>
 <body>
@@ -70,7 +77,8 @@
             <div class="colonne1">
                 
             </div>
-        </div>    
+        </div>
+        <div id="endzone" ></div>    
     </div>    
 </body>
     <script>
@@ -78,17 +86,31 @@
         div.style.position ="absolute";
         let topPostion = 0;
         let tab = []
-
         function gameloop () {
-        if (Math.floor(Math.random() * 500) == 56) {
-            createElement()
+         if (Math.floor(Math.random()* 95) == 1) {
+             createElement()
         }
+        checkelement()
         requestAnimationFrame(gameloop)
-        
         }
     requestAnimationFrame(gameloop)
+
+        function checkelement() {
+            tab.forEach(element => {
+                // const dimensions = element.getBoundingClientRect()
+                // if (dimensions.top >= 700 && dimensions.top <= 750) {
+                // }
+            });
+        }
+
         function createElement () {
             let newdiv = document.createElement("div");
+            newdiv.addEventListener('click', () => {
+                const dimensions = newdiv.getBoundingClientRect()
+                if (dimensions.top > 700) {
+                    newdiv.remove()
+                }
+            })
             newdiv.classList.add("element")
             newdiv.classList.add("colonne" + String(Math.floor(Math.random() * (4 - 1 + 1)) + 1))
             document.querySelector('#myContainer').append(newdiv);
