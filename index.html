@@ -1,106 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Animation d'un cercle</title>
-    <style>
-        #myContainer{
-            width: 300px;
-            height: 300px;
-            background: black;
-            position: absolute;
-            top: 50%; 
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: 1fr;
-        }
-        #container{
-            width: 400px;
-            height: 500px;
-            position: relative;
-            background: white;
-            margin:auto;
-        }
-        .colonne1{
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 50px;
-            height: 50px;
-            border-radius: 50px;
-            background-color: white;
-            grid-row: 1;
-            grid-column: 1;   
-        }
-        .colonne2{
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 50px;
-            height: 50px;
-            border-radius: 50px;
-            background-color: white;
-            grid-row: 1;
-            grid-column: 2;
-        }
-        
-        .colonne3{
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 50px;
-            height: 50px;
-            border-radius: 70px;
-            background-color: white;
-            grid-row: 1;
-            grid-column: 3;
-        }
-        .colonne4{
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 50px;
-            height: 50px;
-            border-radius: 70px;
-            background-color: white;
-            grid-row: 1;
-            grid-column: 4;
-        }
-    </style>
-</head>
-<body>
-    <div id= "container">
-        <div id ="myContainer">
-            <div class="colonne1">
-                
-            </div>
-        </div>    
-    </div>    
-</body>
-    <script>
-        let div = document.querySelector('.colonne1');
-        div.style.position ="absolute";
-        let topPostion = 0;
-        
-        function move () {
-            if (topPostion == 320) {
-            topPostion = 0
-            }
+    <head>
+        <meta charset="utf-8" />
+    </head>
+<style>
+    .element{
+        position: absolute;
+        background: red;
+        width: 50px;
+        height: 100px;
+        top: 50px;
+        border-radius: 30%;
+    }
+    #endzone{
+        border: 1px black solid;
+        height: 300px;
+        width: 100%;
+        margin-top: 300px;
+        background-color: grey;
+    }
 
-            topPostion += 1 ;
-            div.style.top = `${topPostion}px`;
-         
-        requestAnimationFrame(move)
-        createElement() 
-        }
-    requestAnimationFrame(move)
-        function createElement () {
-            let newdiv = document.createElement("div");
-            newdiv.setAttribute("class", "colonne" + String(Math.floor(Math.random() * (4 - 1 + 1)) + 1))
-            document.querySelector('#myContainer').append(newdiv);
-        }
-        createElement()    
-        
-    </script>
+</style>
+<body>
+<button onclick="toggleAnimation()">Start</button>
+<div id="startzone"></div>
+<div id="endzone" ></div>
+<script src="main.js"></script>
+
+<audio  id="music" src="" loop ></audio>
+
+</body>
 </html>
