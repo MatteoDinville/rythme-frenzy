@@ -97,20 +97,35 @@
 
         function checkelement() {
             tab.forEach(element => {
-                // const dimensions = element.getBoundingClientRect()
-                // if (dimensions.top >= 700 && dimensions.top <= 750) {
-                // }
+                
             });
         }
 
+        window.addEventListener('keydown', (key) => {
+                // const dimensions = newdiv.getBoundingClientRect()
+                if (key.key == "s" && tab[0].classList.contains("colonne1")) {
+                    // newdiv.remove();
+                    tab[0].remove();
+                    tab.shift();
+                }
+                if (key.key == "d" && tab[0].classList.contains("colonne2")) {
+                    // newdiv.remove();
+                    tab[0].remove();
+                    tab.shift();
+                }
+                if (key.key == "k" && tab[0].classList.contains("colonne3")) {
+                    tab[0].remove();
+                    tab.shift();
+                }
+                if (key.key == "l" && tab[0].classList.contains("colonne4")) {
+                    tab[0].remove();
+                    tab.shift();
+                }
+                console.log(key)
+            })
+
         function createElement () {
             let newdiv = document.createElement("div");
-            newdiv.addEventListener('click', () => {
-                const dimensions = newdiv.getBoundingClientRect()
-                if (dimensions.top > 700) {
-                    newdiv.remove()
-                }
-            })
             newdiv.classList.add("element")
             newdiv.classList.add("colonne" + String(Math.floor(Math.random() * (4 - 1 + 1)) + 1))
             document.querySelector('#myContainer').append(newdiv);
