@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Projet Rythm-Frenzy</title>
+</head>
+<body>
+    <div id="rules">
+        <p>Les règles du jeu sont simple :</br> vous devez appuyer sur une touche</br>
+            lorsque que le rectangle est dans la plus clair du jeu </p>
+    </div>
+    <div id="leaderboard">
+        <p id="time">Time : 0</p>
+        <p id= "score">Score : 0</p>      
+        <span class='start-btn' id="start">PLAY</span>
+        <span class='restart-btn'id="restart" onClick="window.location.reload()">RESTART</span>
+    </div>
+    <div id= "container">
+        <div id ="game"></div>
+            <div id="button">
+            <div class="btn" id="letter1">S</div>
+            <div class="btn" id="letter2">D</div>
+            <div class="btn" id="letter3">K</div>
+            <div class="btn" id="letter4">L</div>
+          </div>
+        </div>    
+    </div>    
+</body>
+<script type="module" src="main.js"></script>
+</html>
